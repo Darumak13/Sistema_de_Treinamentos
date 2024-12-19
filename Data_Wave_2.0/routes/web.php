@@ -35,7 +35,7 @@ Route::post('/cargos/cadastrar', [CargosController::class, 'cadastrar']);
 Route::get('/cargos/remover/{id}', [CargosController::class, 'remover']);
 
 /*              ROTAS COLABORADORES       */
-Route::get('/colaboradores', [ColaboradoresController::class, 'listar']);
+Route::get('/colaboradores', [ColaboradoresController::class, 'index']);
 Route::get('/colaboradores/cadastro', [ColaboradoresController::class, 'cadastro']);
 Route::get('/colaboradores/cadastro/{id}',[ColaboradoresController::class, 'cadastro']);
 Route::post('/colaboradores/cadastrar', [ColaboradoresController::class, 'cadastrar']);
