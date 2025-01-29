@@ -38,7 +38,7 @@ class TreinamentosController extends Controller
         $u->idCargo = $request->idCargo; 
         $u->nome = $request->nome;
         $u->created_at = $request->created_at;
-        $u->idCargo = $request->idCargo;
+        $u->validade_meses = $request->validade_meses;
         $u->save();
 
         return redirect('/treinamentos');

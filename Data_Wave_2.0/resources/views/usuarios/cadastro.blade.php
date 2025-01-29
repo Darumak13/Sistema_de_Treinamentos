@@ -1,3 +1,6 @@
+@extends('index')
+@section('conteudo')
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
