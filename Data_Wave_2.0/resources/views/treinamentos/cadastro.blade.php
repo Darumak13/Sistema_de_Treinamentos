@@ -1,7 +1,7 @@
 @extends('index')
 @section('conteudo')
 
-<h1>Cadastro Cargos</h1>
+<h1>Cadastro Treinamentos</h1>
 
 <form action="/treinamentos/salvar" method="post">
     @csrf

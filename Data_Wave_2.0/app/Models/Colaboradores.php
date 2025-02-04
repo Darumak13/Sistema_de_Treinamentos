@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Colaboradores extends Model
 {
-    protected $table='colaboradores';
-    protected $fillable=['permissao','email','nome'];
+    protected $table='colaborador';
+    protected $fillable=['permissao','email', 'senha'];
 };
