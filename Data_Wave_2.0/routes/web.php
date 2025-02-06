@@ -17,11 +17,12 @@ use App\Http\Controllers\TreinamentosController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('login');
 });
 
 /*              ROTAS USUÁRIOS            */
 Route::get('/usuarios', [UsuariosController::class, 'index']);
+Route::post('/login', [UsuariosController::class, 'loginprocess']) ->name('login.process');
 Route::get('/usuarios/cadastro',[UsuariosController::class, 'cadastro']);
 Route::get('/usuarios/cadastro/{id}',[UsuariosController::class, 'cadastro']);
 Route::post('/usuarios/salvar',[UsuariosController::class,'salvar']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Colaboradores;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use App\Models\LoginRequest;
 
 
 class ColaboradoresController extends Controller
@@ -18,7 +19,7 @@ class ColaboradoresController extends Controller
     public function login()
     {
         $usuarios = Usuarios::get();
-        return view('usuarios.login', compact('usuarios'));
+        return view('usuarios.index', compact('usuarios'));
     }
 
 

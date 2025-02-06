@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Treinamentos;
 use App\Models\Cargos;
 use App\Models\Produtos;
+use App\Models\LoginRequest;
 
 use Illuminate\Http\Request;
 
