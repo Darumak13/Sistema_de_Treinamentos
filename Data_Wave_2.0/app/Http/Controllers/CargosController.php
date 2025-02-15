@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cargos;
 use Illuminate\Http\Request;
+use App\Models\LoginRequest;
 
 
 class CargosController extends Controller

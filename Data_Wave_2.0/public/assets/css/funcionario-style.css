@@ -1,100 +1,575 @@
-body{
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 0 20px;
-    background-color: #f4f4f4;
+body {
     font-family: "Roboto Condensed", sans-serif;
-}
-
-header{
-    position: absolute;
-    background: linear-gradient(90deg, #67139b, #09a1f6);
-    width: 100%;
-    height: 50px;
-    width: calc(100% - 230px);
-    z-index: 1000;
-    left: 230px;
-    top: 0;
-}
-
-#section-title{
-    position: absolute;
-    margin-left: 40px;
-    transform: translateY(-5px);
-    cursor: pointer;
-}
-
-#user-title{
-    position: absolute;
-    margin-left: 90%;
-    transform: translateY(-5px);
-    cursor: pointer;
-}
-
-#user-icon {
-    position: absolute;
-    margin-left: 96.4%;
-    width: 39px;
-    height: 39px;
-    transform: translateY(2px);
-    border-radius: 50%;
-    object-fit: cover;
-    overflow: hidden;
-    border: 2px solid #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-#logo-data-wave{
-    position: absolute;
-    width: 6%;
-    left: 65px;
-    cursor: pointer;
-}
-
-/* Estilo para o painel lateral */
-#side-nav {
-    position: fixed;
-    top: 200px; /* Respeitar o header */
-    left: 0;
-    width: 200px;
-    padding: 20px;
-    z-index: 500;
-}
-
-#side-nav ul {
-    list-style: none;
+    line-height: 1.6;
+    margin: 0;
     padding: 0;
+    display: flex;
+    background-color: #f4f4f4;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o menu lateral */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 230px;
+    height: 100%;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 90px 0 0;
     margin: 0;
 }
 
-#side-nav li {
-    margin-bottom: 15px;
+.sidebar ul li {
+    margin: 11px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-#side-nav a {
-    text-decoration: none;
-    text-align: center;
-    color: #67139b;
+.sidebar ul li:hover {
+    background: #67139b;
+    color: white;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.sidebar .divider {
+    border-top: 1px solid #ccc;
+    margin: 10px 20px;
+}
+
+/* Estilos do cabeçalho */
+header {
+    position: fixed;
+    background: linear-gradient(90deg, #67139b, #09a1f6);
+    width: calc(100% - 230px);
+    height: 50px;
+    left: 230px;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+header .left {
+    display: flex;
+    align-items: center;
+}
+
+header .right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header #section-title {
     font-size: 18px;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.2s;
+    cursor: pointer;
 }
 
-#side-nav a:hover {
+header #user-title {
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+header #user-icon {
+    width: 39px;
+    height: 39px;
+    margin-right: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Estilos do conteúdo principal */
+.content {
+    margin-left: 230px;
+    margin-top: 50px;
+    padding: 20px;
+    background: #f4f4f4;
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+}
+
+/* Estilos dos campos de entrada */
+.input-field {
+    width: 100%;
+    width: 340px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 280px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.config-container label{
+    margin-left: 280px;
+}
+
+.config-content #user-icon{
+    width: 89px;
+    height: 89px;
+    margin-left: 420px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+#title-config{
+    top: -40px;
+    position: relative;
+    margin-left: 30px;
+}
+
+#alterar-perfil-btn{
+    text-decoration: none;
+    color: #67139b;
+    font-weight: bold;
+    margin-left: 420px;
+}
+
+.config-container .divider{
+    border-top: 1px solid #ccc;
+    margin: -35px 40px;
+}
+
+.input-field:focus {
+    border-color: #67139b;
+    box-shadow: 0 0 8px rgba(103, 19, 155, 0.5);
+    outline: none;
+}
+
+/* Estilos para a sobreposição (fundo escurecido) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+/* Estilos para a janela de configurações */
+.config-container {
+    background-color: #e7d8d8;
+    width: 100%;
+    width: 680px;
+    max-height: 440px; 
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: #67139b #e7d8d8;
+}
+
+.change-password{
+    margin-left: 415px;
+}
+
+.change-password a {
+    text-decoration: none;
+    color: #67139b;
+    font-weight: bold;
+}
+
+.config-container.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+/* Menu lateral de configurações */
+#configButton {
+    font-size: 18px; 
+}
+
+/* Fundo escurecido */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+/* Menu de configuração: Campos */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* A barra de navegação das abas */
+.tabs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+}
+
+.tabs li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tabs li:hover,
+.tabs li.active {
+    background: #67139b;
+    color: white;
+}
+
+/* Estilo do conteúdo das abas */
+.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+/* Informações do usuário */
+.info label {
+    font-weight: bold;
+}
+
+.info input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4; 
+    cursor: not-allowed;
+}
+
+.info input:focus {
+    border-color: #ccc; 
+    box-shadow: none; 
+}
+
+/* A área de conteúdo vai ter o scroll apenas dentro da janela */
+.config-container .tabs {
+    overflow-y: auto;
+    max-height: 300px; 
+    padding-right: 15px; 
+    scrollbar-width: thin; 
+}
+
+.config-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.config-container::-webkit-scrollbar-thumb {
+    background: #67139b; 
+    border-radius: 4px; 
+}
+
+.config-container::-webkit-scrollbar-track {
+    background: #e7d8d8; 
+    border-radius: 4px; 
+    margin: 5px; 
+}
+
+/* Estilos do botão de fechar */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #67139b;  
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #09a1f6;  
+    transform: scale(1.1);  
+}
+
+.close-btn:focus {
+    outline: none;
+}
+
+#configButton{
+    font-size: 12pt; 
+}
+
+.config-sidebar ul li{
+    list-style: none;
+    position: relative;
+    left: 0;
+    right: 0;
+    text-indent: -25px;
+    top: 60px;
+}
+
+/* Estilos do Componente de Notificações */
+.notifications-container {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .card {
+    width: fit-content;
+    background-color: #f2f3f7;
+    border-radius: 0.75em;
+    cursor: pointer;
+    transition: ease 0.2s;
+    box-shadow: 1em 1em 1em #d8dae0b1, -0.75em -0.75em 1em #ffffff;
+    border: 1.5px solid #f2f3f7;
+  }
+  
+  .card:hover {
+    background-color: #d3ddf1;
+    border: 1.5px solid #1677ff;
+  }
+  
+  .container {
+    display: flex;
+    gap: 0.75em;
+    padding: 15px;
+  }
+  
+  .status-ind {
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    border-radius: 50%;
+  }
+  
+  .text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #333;
+  }
+  
+  .time {
+    font-size: 0.875em;
+    color: #777;
+  }
+  
+  .text-link {
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .button-wrap {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .primary-cta, .secondary-cta {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .primary-cta {
+    color: #1677ff;
+    font-weight: bold;
+  }
+  
+  .secondary-cta {
+    color: #666;
+  }
+
+  .funcionarios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .search-box {
+    margin-bottom: 10px;
+  }
+  
+  .funcionarios-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .funcionario-card {
+    width: 120px;
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .funcionario-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .funcionario-card h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .funcionario-card p {
+    font-size: 12px;
+  }
+
+  .form-group input {
+    border: none;
+    background-color: #ece7e7;
+    border-radius: 15px;
+    position: relative;
+    width: 500px;
+    height: 35px;
+    margin: 10px;
+  }
+
+  .form-group #telefone {
+    width: 190px;
+  }
+
+  .form-group #cargo {
+    width: 240px;
+  }
+
+  #btn-cadastrar-sub, #cancelCadastroBtn{
+    border-radius: 15px;
+    border: none;
+    position: relative;
+    width: 210px;
+    height: 35px;
+    margin-top: 20px;
+    bottom: 0;
+    cursor: pointer;
+  }
+
+  #btn-cadastrar-sub:hover, #cancelCadastroBtn:hover{
     color: white;
     background-color: #67139b;
-    
-}
+  }
 
-main {
-    margin-left: 220px; /* Espaço para o menu lateral */
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 100px); /* Considerando altura do header */
-}
+  #cadastrarFuncionarioBtn, #verFuncionariosBtn{
+    border-radius: 15px;
+    border: none;
+    position: relative;
+    width: 210px;
+    height: 35px;
+    margin-top: 20px;
+    bottom: 0;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #67139b, #4f00e0);
+  }
 
+  input:focus{
+    border: 2px solid #4f00e0; /* Muda a borda quando selecionado */
+    outline: none;
+  }
+
+  select{
+    border-radius: 10px;
+    height: 35px;
+    outline: none;
+  }
+
+  #password, #confirmSenha{
+    width: 150px;
+  }
+
+
+  
+  

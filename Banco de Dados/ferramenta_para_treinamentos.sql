@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/02/2025 às 21:30
+-- Tempo de geração: 15/02/2025 às 20:27
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -116,7 +116,7 @@ CREATE TABLE `usuarios` (
   `id` int(10) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `permissao` int(1) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -128,8 +128,20 @@ CREATE TABLE `usuarios` (
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `permissao`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
-(1, 'Daniel Victor', 'gusgus_2@meutoba.com', '$2y$12$tACoG2DpbgFx0hDTy7PrUu6J6HSZIyJwLKnnpGKFwdW68Gb4jQM3u', NULL, '2024-12-18 23:53:44', '2024-12-18 23:54:03', NULL, NULL);
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `password`, `permissao`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
+(2, 'Comunicação', 'teste@123gmail.com', '$2y$12$KNoRvFuIEa20veyvmVzWCOoqv8bNrUfIKBP/J2Jz7KDmO.HtO/Knq', NULL, '2025-02-04 22:08:02', '2025-02-04 22:08:02', NULL, NULL),
+(3, 'Comunicação', 'teste@123gmail.com', '$2y$12$.kuD3P.7salbxF6I/9qHG.J2R8uwwuh2cCavVRB3avapPpbA4Jzg2', NULL, '2025-02-06 23:08:45', '2025-02-06 23:08:45', NULL, NULL),
+(4, 'daniel', 'danielvictor@hotmail.com', '$2y$12$IS45mW0YVk.q2LotBDt.IOyqtF4/Ut6U2hZd4ki9PyR/ZiMFYD45G', NULL, '2025-02-10 23:03:33', '2025-02-10 23:03:33', NULL, NULL),
+(5, 'Geral', 'gabriel@123gmail.com', '111', NULL, '2025-02-11 23:31:18', '2025-02-11 23:31:18', NULL, NULL),
+(6, 'Amanda', 'amandaSenai@gmail.com', '$2y$12$uTSDJVdAcRWQwFVTjksJ2uElY4N/SWXwQHRIU1Zrjl7XuAx7Yb8bm', NULL, '2025-02-12 22:35:31', '2025-02-12 22:35:31', NULL, NULL),
+(7, 'Teste', 'teste@docente.com', '$2y$12$IDhPDsZYcbAogq08/2233ePP4jq0vQvgxK4nyZvkS7QSQnUi8A3xK', NULL, '2025-02-12 23:25:18', '2025-02-12 23:25:18', NULL, NULL),
+(10, 'ttt', 'ttt@docente.com', '$2y$12$cML4bPr9UG26QviIwVAbVOiuk3brB4ql4h9/wCl9zG.cYNCm8/UVy', 1, '2025-02-12 23:59:39', '2025-02-12 23:59:39', NULL, NULL),
+(12, 'gmail', 'bom123@gmail.com', '$2y$12$0dEF4.Lun5EP/QAbVY1oQeco/kx5nCIcrdjxGwi/daMAes9T5pY1e', NULL, '2025-02-13 00:06:04', '2025-02-13 00:06:04', NULL, NULL),
+(13, 'Google', 'google@gmail.com', '$2y$12$dbqRFFMKJKVi84DNpQ2NQe4C2fIY0/2IdvFiRn0pkoelEELH5f9Ou', 0, '2025-02-13 21:59:07', '2025-02-13 21:59:07', NULL, NULL),
+(14, 'yahoo', 'yahoo@docente.com', '$2y$12$gth.yCKiXwgq0GNAG7gTZu9jRKHjNTHZs5XoLi6jH9JYJekPBJxjK', NULL, '2025-02-13 22:41:37', '2025-02-13 22:41:37', NULL, NULL),
+(15, 'DANIEL', 'danielm@func.com', '$2y$12$.6dTFyDwGC43WfDooXPp2u36.qkN0iG4/Jt.0YmSEBaOMBtkO5TGq', 1, '2025-02-13 23:13:04', '2025-02-13 23:13:04', NULL, NULL),
+(16, 'Teste4', 'teste4@colaborador.com.br', '$2y$12$TgVeod7ALdC3ssUSM3BKvOLo.zNQGz1cH9RnMFy6AAp860mforeyO', 1, '2025-02-15 17:52:21', '2025-02-15 17:52:21', NULL, NULL),
+(17, 'TESTE5', 'teste5@secretaria.com', '$2y$12$X7gVcqH.spjVvI7jrDLZE.nNB2a6hHHTXprPmLDiyNb9z9tBGybna', 0, '2025-02-15 18:35:07', '2025-02-15 18:35:07', NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -186,7 +198,7 @@ ALTER TABLE `treinamentos`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restrições para tabelas despejadas

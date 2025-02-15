@@ -2,8 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuarios;
-use App\Models\Produtos;
 use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -21,14 +21,15 @@ class UsuariosController extends Controller
         // Validar o formulário
         $request->validated();
 
-        // Validar o usuário e a senha com as informações do banco de dados
-        $autheticade = Auth::attempt(['email' => $request-> email, 'senha'=>$request->senha]);
+        // Validar o usuário e a password com as informações do banco de dados
+        $autheticade = Auth::attempt(['email' => $request-> email, 'password'=>$request->password, 'permissao' =>$request->permissao]);
 
-        // Verificar se o usuário foi autenticado
-        if(!$autheticade){
-            //Redirecionar o usuário para a pagina anterior "login", enviar a mensagem erro
-            return back() ->withInput()->with('error', 'E-mail ou senha inválido!');
-        }
+
+    }
+
+    public function Adm(){
+        $ADM = Usuarios::get();
+        return view('admnistrativo.index',compact('ADM'));
     }
 
     public function cadastro($id=null)
@@ -50,7 +51,8 @@ class UsuariosController extends Controller
 
         $u->nome = $request->nome;
         $u->email = $request->email;
-        $u->senha = bcrypt($request->senha);
+        $u->password = bcrypt($request->password);
+        $u->permissao = $request->permissao;
         $u->save();
 
         return redirect('/usuarios');

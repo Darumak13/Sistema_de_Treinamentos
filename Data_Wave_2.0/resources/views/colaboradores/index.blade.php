@@ -1,4 +1,3 @@
-@extends('index')
 
 @section('conteudo')
 
@@ -22,4 +21,3 @@
 @endforeach
 </table>
 
-@endsection

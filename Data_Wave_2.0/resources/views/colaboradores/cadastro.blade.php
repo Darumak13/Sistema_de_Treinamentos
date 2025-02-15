@@ -1,4 +1,3 @@
-@extends('index')
 @section('conteudo')
 
 <h1>Cadastro Colaboradores</h1>
@@ -13,6 +12,7 @@
             <option value="2">Coordenador</option>
     </select>
     <input type="hidden" name="id" value="{{@$resultado->$created_at}}">
+    <input type="hidden" name="id" value="{{@$resultado ->$id}}">
     <button type="submit" class="btn btn-primary">Submit</button>   
 </form>
 

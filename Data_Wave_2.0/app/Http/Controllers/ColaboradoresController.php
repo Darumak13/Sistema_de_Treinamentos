@@ -16,10 +16,14 @@ class ColaboradoresController extends Controller
         return view('colaboradores.index', compact('colaborador'));
     }
 
-    public function login()
+    public function colaborador($id = null)
     {
-        $usuarios = Usuarios::get();
-        return view('usuarios.index', compact('usuarios'));
+        $resultado = null;
+        if($id){
+            $resultado = Colaboradores::find($id);
+        }
+
+        return view('colaboradores.colaborador', compact('resultado'));
     }
 
 
@@ -46,7 +50,7 @@ class ColaboradoresController extends Controller
         $u->senha = bcrypt($request->senha);
         $u->save();
 
-        return redirect('/login');
+        return redirect('/colaborador');
     }
 
     public function remover($id)
