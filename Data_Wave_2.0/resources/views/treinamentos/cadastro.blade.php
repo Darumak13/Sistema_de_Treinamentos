@@ -1,5 +1,4 @@
-@extends('index')
-@section('conteudo')
+
 
 <h1>Cadastro Treinamentos</h1>
 
@@ -26,4 +25,3 @@
     <button type="submit" class="btn btn-primary">Submit</button>   
 </form>
 
-@endsection

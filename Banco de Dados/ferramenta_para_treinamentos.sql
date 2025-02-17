@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/02/2025 às 20:27
+-- Tempo de geração: 17/02/2025 às 16:02
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -41,7 +41,9 @@ CREATE TABLE `cargos` (
 --
 
 INSERT INTO `cargos` (`id`, `nome`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
-(1, 'Pedreiro', '2024-12-18 23:54:28', '2024-12-18 23:54:28', NULL, NULL);
+(1, 'Pedreiro', '2024-12-18 23:54:28', '2024-12-18 23:54:28', NULL, NULL),
+(2, 'Engenheiro', '2025-02-17 14:52:44', '2025-02-17 14:52:44', NULL, NULL),
+(3, 'Fazendeiro', '2025-02-17 14:52:57', '2025-02-17 14:52:57', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -51,6 +53,8 @@ INSERT INTO `cargos` (`id`, `nome`, `created_at`, `updated_at`, `deleted_at`, `s
 
 CREATE TABLE `colaborador` (
   `id` int(10) NOT NULL,
+  `idCargo` int(10) NOT NULL,
+  `nome` varchar(255) NOT NULL,
   `permissao` int(1) NOT NULL,
   `email` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
@@ -64,14 +68,10 @@ CREATE TABLE `colaborador` (
 -- Despejando dados para a tabela `colaborador`
 --
 
-INSERT INTO `colaborador` (`id`, `permissao`, `email`, `senha`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
-(1, 2, 'danielvictor@hotmail.com', '$2y$12$MFoBxSGlfwg1ULDpGkwOUuU5.uaIOkySxxIwEooqCIQVq2z3Fuuq2', '2025-02-03 23:25:45', '2025-02-03 23:25:45', NULL, NULL),
-(2, 2, 'danielvictor@hotmail.com', '$2y$12$nHoWIoJqr08cz5KaWtua2.k0reRD9xFsi3fS88pAhLyJ6vHttWqM.', '2025-02-03 23:25:50', '2025-02-03 23:25:50', NULL, NULL),
-(3, 2, 'danielvictor@hotmail.com', '$2y$12$pqNjfx//e.JckHkGcwhNB./r1JOllZpk7uDPHoJFYi0jqg5YrJkBy', '2025-02-03 23:28:49', '2025-02-03 23:28:49', NULL, NULL),
-(4, 2, 'danielvictor@hotmail.com', '$2y$12$cvgD1A7PVYs4O6CB.ABuG.RtLMdK561klqpe6xyRXwqEHFfmfszH2', '2025-02-03 23:31:17', '2025-02-03 23:31:17', NULL, NULL),
-(5, 1, 'teste@123gmail.com', '$2y$12$hpGIAE8Ec961xl7r6vn2xu0MV8e2GDbk0/Ft52GRgjN4ci0vz5Csu', '2025-02-03 23:39:35', '2025-02-03 23:39:35', NULL, NULL),
-(6, 1, 'teste@123gmail.com', '$2y$12$fXyUj.DInqw2AYQAXiw79efX.EqHX4WV7a0XzxfMHC5nRFrYYqUfO', '2025-02-03 23:40:05', '2025-02-03 23:40:05', NULL, NULL),
-(7, 1, 'teste@123gmail.com', '$2y$12$35/gnjRn6LAZt/cIAOXdtOpxi0NoW7DbyMtctfhA1qFTIoTC3qgSu', '2025-02-03 23:43:03', '2025-02-03 23:43:03', NULL, NULL);
+INSERT INTO `colaborador` (`id`, `idCargo`, `nome`, `permissao`, `email`, `senha`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
+(8, 1, 'Daniel Victor', 1, 'danielv@cola.com.br', '$2y$12$PnQgXCu3gG181YUINVy1re.mknhIqOMrZ6aaph/Le53i.xfZyzu0C', '2025-02-17 14:40:54', '2025-02-17 14:40:54', NULL, NULL),
+(14, 1, 'Gabriel', 1, 'gabriel@cola.com.br', '$2y$12$NpS8yNWY.b1kGVInyy6IAOd.zLMdN44umqRtbavKr477xlRumhJKm', '2025-02-17 14:48:25', '2025-02-17 14:48:25', NULL, NULL),
+(15, 1, 'Gabriel', 1, 'gabriel@cola.com.br', '$2y$12$KUppmlzi8PlZ8AuI3nWFfu7fokMldmV.M6cx28/rdeZeN4KKSQHUq', '2025-02-17 14:49:01', '2025-02-17 14:49:01', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,13 @@ CREATE TABLE `treinamentos` (
   `validade_meses` int(2) NOT NULL,
   `status` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `treinamentos`
+--
+
+INSERT INTO `treinamentos` (`id`, `nome`, `created_at`, `updated_at`, `deleted_at`, `idCargo`, `validade_meses`, `status`) VALUES
+(1, 'Comunicação', '2001-12-05 15:11:00', '2025-02-17 14:29:05', NULL, 1, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,7 +164,8 @@ ALTER TABLE `cargos`
 -- Índices de tabela `colaborador`
 --
 ALTER TABLE `colaborador`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_idCargo_colaborador` (`idCargo`);
 
 --
 -- Índices de tabela `treinamentos`
@@ -180,19 +188,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `cargos`
 --
 ALTER TABLE `cargos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `colaborador`
 --
 ALTER TABLE `colaborador`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `treinamentos`
 --
 ALTER TABLE `treinamentos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -203,6 +211,12 @@ ALTER TABLE `usuarios`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `colaborador`
+--
+ALTER TABLE `colaborador`
+  ADD CONSTRAINT `fk_idCargo_colaborador` FOREIGN KEY (`idCargo`) REFERENCES `cargos` (`id`);
 
 --
 -- Restrições para tabelas `treinamentos`

@@ -1,5 +1,4 @@
-@extends('index')
-@section('conteudo')
+
 <h1>Lista de cargos</h1>
 <table border="1">
     <tr>
@@ -17,4 +16,3 @@
 
     <button><a href="cargos/cadastro">Cadastrar</a></button>
     <button><a href="/">Home</a></button>
-    @endsection

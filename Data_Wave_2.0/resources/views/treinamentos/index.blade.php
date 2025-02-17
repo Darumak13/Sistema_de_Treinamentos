@@ -1,6 +1,3 @@
-@extends('index')
-
-@section('conteudo')
 
 <h1>Lista de Treinamentos</h1>
 <table class="table">
@@ -24,4 +21,3 @@
 @endforeach
 </table>
 
-@endsection

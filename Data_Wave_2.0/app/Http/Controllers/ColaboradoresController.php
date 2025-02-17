@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Colaboradores;
+use App\Models\Cargos;
+use App\Models\Treinamentos;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use App\Models\LoginRequest;
@@ -34,7 +36,8 @@ class ColaboradoresController extends Controller
             $resultado = Colaboradores::find($id);    
         }
 
-        return view('colaboradores.cadastro', compact('resultado'));
+        $cargos = Cargos::get();
+        return view('colaboradores.cadastro', compact('resultado','cargos'));
     }
 
     public function salvar(Request $request)
@@ -45,12 +48,14 @@ class ColaboradoresController extends Controller
             $u = new Colaboradores;
         }
 
+        $u->idCargo = $request->idCargo;
+        $u->nome = $request->nome;
         $u->permissao = $request->permissao; 
         $u->email = $request->email;
         $u->senha = bcrypt($request->senha);
         $u->save();
 
-        return redirect('/colaborador');
+        return redirect('/colaboradores/colaborador');
     }
 
     public function remover($id)
@@ -58,7 +63,7 @@ class ColaboradoresController extends Controller
         $r = Colaboradores::find($id);
         $r->delete();
 
-        return redirect('/colaborador');
+        return redirect('/colaboradores');
     }
     
 };

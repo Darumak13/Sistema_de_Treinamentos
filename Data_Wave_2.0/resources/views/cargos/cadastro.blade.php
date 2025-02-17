@@ -1,5 +1,4 @@
-@extends('index')
-@section('conteudo')
+
 
 <h1>Cadastro Cargos</h1>
 
@@ -12,4 +11,3 @@
 </form>
 <a href="/cargos">Voltar</a>
 
-@endsection
